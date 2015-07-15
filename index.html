@@ -7,14 +7,23 @@
   <script type="text/javascript" src="app.js"></script>
 </head>
 <body>
-  <div ng-controller="StoreController as store">
-    <h1> {{store.product.name}} </h1>
-    <h2> ${{store.product.price}} </h2>
-    <p> {{store.product.description}} </p>
-  </div>
 
+	<div ng-controller="StoreController as store">
+	  <div ng-repeat="product in store.products">
+	    <h1> {{product.name}} </h1>
+	    <h2> {{product.price | currency }} </h2>
+	    <p> {{product.description}} </p>
+	    <button ng-show="product.canPurchase"> Add to Chart </button>
+	  </div>
+	</div>
 
-
+	<section>
+		<ul class="nav nav-pills">
+			<li><a href >Description</a></li>
+			<li><a href >Specifications</a></li>
+			<li><a href >Reviews</a></li>
+		</ul>
+	</section>
 
 </body>
 </html>
